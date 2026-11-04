@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tablero de mando",
+  title: "Test",
 };
 
 export default function DashboardPage() {

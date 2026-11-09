@@ -4,11 +4,15 @@
 :root {
   --background: #FFFFFF;
   --foreground: #171717;
+  --nav: #f0f2f5;
+  --nav-border: #59636e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-nav: var(--nav);
+  --color-nav-border: var(--nav-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,6 +20,8 @@
 .dark {
   --background: #222222;
   --foreground: #FFFFFF;
+  --nav: #161b22;
+  --nav-border: #9198a1;
 }
 
 body {

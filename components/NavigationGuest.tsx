@@ -4,8 +4,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function NavigationGuest({ showLogin = true }: { showLogin?: boolean }) {
   return (
-    <header className="border-b border-gray-200">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <header className="border-b border-nav-border bg-nav">
+      <nav className="flex h-16 items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold">
           <Logo size={28} />
           <span>Hackerland<span className="text-[#11B6F0]">-Desk</span></span>    

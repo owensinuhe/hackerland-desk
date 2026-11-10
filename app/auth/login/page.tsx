@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
+import { redirect } from "next/navigation";
 import Logo from "@/components/Logo";
 import LoginForm from "@/components/LoginForm";
-import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
-export const instant = false;
 
 export const metadata: Metadata = {
   title: "Iniciar sesión",
 };
 
-export default async function LoginPage() {
-  if (await getSession()) redirect("/dashboard");
+// La página ya no es async: el formulario se arma por adelantado
+export default function LoginPage() {
   return (
     <section className="flex flex-1 items-center justify-center px-4">
+      {/* Si ya hay sesión, manda al tablero (dentro de Suspense por cacheComponents) */}
+      <Suspense fallback={null}>
+        <RedirectIfSignedIn />
+      </Suspense>
+
       <div className="flex w-full max-w-sm flex-col items-center gap-8">
 
         {/* Logo y título, igual que en la barra */}
@@ -35,4 +40,10 @@ export default async function LoginPage() {
       </div>
     </section>
   );
+}
+
+// No muestra nada: solo revisa la sesión y redirige si ya existe
+async function RedirectIfSignedIn() {
+  if (await getSession()) redirect("/dashboard");
+  return null;
 }

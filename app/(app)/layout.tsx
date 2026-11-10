@@ -1,4 +1,5 @@
 import { requireSession } from "@/lib/session";
+export const instant = false;
 
 export default async function AppLayout({
   children,

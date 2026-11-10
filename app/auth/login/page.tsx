@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import LoginForm from "@/components/LoginForm";
-  import { redirect } from "next/navigation";
-  import { getSession } from "@/lib/session";
+import { redirect } from "next/navigation";
+import { getSession } from "@/lib/session";
+export const instant = false;
 
 export const metadata: Metadata = {
   title: "Iniciar sesión",
